@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author        = { "Innometrics" => "dev-support@innometrics.com" }
   s.homepage      = "https://github.com/Innometrics/iOS-SDK.git"
   s.license       = { :file => 'LICENSE', :type => 'Commercial' }
-  s.frameworks    = 'CoreLocation', 'Security', 'MobileCoreServices', 'SystemConfiguration', 'CoreTelephony'
+  s.frameworks    = 'CoreLocation', 'Security', 'MobileCoreServices', 'SystemConfiguration', 'CoreTelephony', 'PixateFreestyle'
   #s.dependency 'Innometrics/pixate-freestyle-ios',  '~> 2.1'
   s.libraries     = 'xml2', 'sqlite3'
   s.source = {
