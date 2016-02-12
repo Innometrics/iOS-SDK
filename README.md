@@ -31,7 +31,9 @@ Use [CocoaPods](https://github.com/CocoaPods/CocoaPods), [Carthage](https://gith
 ### Setting up manually
 
 1. Download `Innometrics.framework` and `PixateFreestyle.framework`
-2. Drag `Innometrics.framework` and `PixateFreestyle.framework` (located in Carthage/Build/iOS/) into your application’s Xcode project, and add it to your test target(s).
-3. A new `Run Script Phase` must be added to copy the framework. The instructions can be found on [Carthage's getting started instructions](https://github.com/carthage/carthage#getting-started)
-4. Make sure that both libraries are added to "Embed Frameworks" Build Phase
+1. Drag `Innometrics.framework` and `PixateFreestyle.framework` (located in Carthage/Build/iOS/) into your application’s Xcode project, and add it to your test target(s).
+1. Remove invalid architectures from universal binary frameworks before submit App to iTunes Connect. More information you can find [here](http://stackoverflow.com/questions/29634466/how-to-export-fat-cocoa-touch-framework-for-simulator-and-device#answer-31270427). You can use [strip-frameworks.sh](https://github.com/realm/realm-cocoa/blob/f07d1af226b67c0aefb150d12da3fd34c5d64087/scripts/strip-frameworks.sh) to workaround this issue.
+1. Make sure that both libraries are added to "Embed Frameworks" Build Phase
+
+
 
