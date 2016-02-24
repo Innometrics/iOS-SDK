@@ -1,6 +1,0 @@
-framework module Innometrics {
-  umbrella header "Innometrics.h"
-
-  export *
-  module * { export * }
-}
