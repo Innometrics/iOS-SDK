@@ -1,0 +1,6 @@
+framework module CoreParse {
+  umbrella header "CoreParse.h"
+
+  export *
+  module * { export * }
+}

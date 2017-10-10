@@ -4,125 +4,163 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/IDCAbstractLogger.h</key>
-		<data>
-		aHDH/EjXdhCP3MrXx4KWRjlg5ZQ=
-		</data>
-		<key>Headers/IDCLogger.h</key>
-		<data>
-		j6sBd2XZrpIvi15hxCiaCwKSIS8=
-		</data>
-		<key>Headers/IDCSegmentEvaluation.h</key>
-		<data>
-		oi8FQx8PcTiFw6RChkDdig89F0g=
-		</data>
-		<key>Headers/IDCSegmentEvaluationResult.h</key>
-		<data>
-		efMBMwyxEGeKNNsodaaT7b3qG1c=
-		</data>
-		<key>Headers/IIFBuildingBlock.h</key>
-		<data>
-		/y61kXWc4tUW7EKdm8EL5lO6+co=
-		</data>
-		<key>Headers/IIFEventDefinition.h</key>
-		<data>
-		bb1r85fwAlQruKfTCNvX5iD2yFM=
-		</data>
 		<key>Headers/IIFEventExecutionContext.h</key>
 		<data>
-		XihVEzXZ4BceAYC1hNSASeDRNEA=
-		</data>
-		<key>Headers/IIFPreparator.h</key>
-		<data>
-		vSNQi/KBye+kyjitC3963Y5MWpI=
+		9vBci19XhyO99C+arYTAmtpeuCE=
 		</data>
 		<key>Headers/IIFTag.h</key>
 		<data>
-		GkzrliaBKbV6CEktXUAK73vVM9Y=
+		iBssx1vDvcz4fYJM0HDBZIIDjjU=
+		</data>
+		<key>Headers/INNResult.h</key>
+		<data>
+		IQ9E7AiisIWTSzNIrK4FSIBIfu8=
 		</data>
 		<key>Headers/Innometrics.h</key>
 		<data>
-		TWQvE050fNSwGXcmOzpZTyYwiPg=
+		QJeASXrGM/37zvQV3LOODqVyuMQ=
 		</data>
 		<key>Headers/InnometricsAPI.h</key>
 		<data>
-		OxvKS0El58jcq/gbatUiILSmJvk=
+		FQewQbz+Ocydojdrrcn9YD2131A=
 		</data>
-		<key>Headers/InnometricsIF.h</key>
+		<key>IQLParser_1.3.0.archive</key>
 		<data>
-		T/U4zPXmwNBjnq5zmRW8+HMvZqI=
-		</data>
-		<key>Headers/NSDictionary+Additions.h</key>
-		<data>
-		Cs50ARGoFbUfqL9CPQqwMAZO6/s=
-		</data>
-		<key>Headers/NSObject+Runtime.h</key>
-		<data>
-		75rPAmifz4bHRiYi9yfJzTKGO+I=
+		kqPvchBszmcnMt/tKKn7eajFkdo=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		TgZLdPamtntbG1d3YUZhtsg3wXs=
+		Qm7hS2PoUw/lrIdWAIs+keP+U/w=
+		</data>
+		<key>Innometrics.momd/Innometrics.mom</key>
+		<data>
+		TsYF+DHsJ5BzQ892bHQDwYT9oy0=
+		</data>
+		<key>Innometrics.momd/VersionInfo.plist</key>
+		<data>
+		/OuaKJUKha9/ItmwLqfDjPMtGDw=
+		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		D7mo0aqY5iQcoPj7HTpimlyrT1Q=
+		</data>
+		<key>defaults.json</key>
+		<data>
+		ekP90kMxMYJhXca+QQrB5OCRvmE=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/IDCAbstractLogger.h</key>
-		<data>
-		aHDH/EjXdhCP3MrXx4KWRjlg5ZQ=
-		</data>
-		<key>Headers/IDCLogger.h</key>
-		<data>
-		j6sBd2XZrpIvi15hxCiaCwKSIS8=
-		</data>
-		<key>Headers/IDCSegmentEvaluation.h</key>
-		<data>
-		oi8FQx8PcTiFw6RChkDdig89F0g=
-		</data>
-		<key>Headers/IDCSegmentEvaluationResult.h</key>
-		<data>
-		efMBMwyxEGeKNNsodaaT7b3qG1c=
-		</data>
-		<key>Headers/IIFBuildingBlock.h</key>
-		<data>
-		/y61kXWc4tUW7EKdm8EL5lO6+co=
-		</data>
-		<key>Headers/IIFEventDefinition.h</key>
-		<data>
-		bb1r85fwAlQruKfTCNvX5iD2yFM=
-		</data>
 		<key>Headers/IIFEventExecutionContext.h</key>
-		<data>
-		XihVEzXZ4BceAYC1hNSASeDRNEA=
-		</data>
-		<key>Headers/IIFPreparator.h</key>
-		<data>
-		vSNQi/KBye+kyjitC3963Y5MWpI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			9vBci19XhyO99C+arYTAmtpeuCE=
+			</data>
+			<key>hash2</key>
+			<data>
+			4SwQ8jE5g2rg3rALy0yvO9Jtur4SQ350LBN2Rk6wl9U=
+			</data>
+		</dict>
 		<key>Headers/IIFTag.h</key>
-		<data>
-		GkzrliaBKbV6CEktXUAK73vVM9Y=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			iBssx1vDvcz4fYJM0HDBZIIDjjU=
+			</data>
+			<key>hash2</key>
+			<data>
+			63s+zkrQBiCYuESH2YIICP639I+UF4B+VepMkevCVeA=
+			</data>
+		</dict>
+		<key>Headers/INNResult.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IQ9E7AiisIWTSzNIrK4FSIBIfu8=
+			</data>
+			<key>hash2</key>
+			<data>
+			W9nPQ43ehG1OHzDVqzOCRpueJRdHziQFKXPX0U40xo0=
+			</data>
+		</dict>
 		<key>Headers/Innometrics.h</key>
-		<data>
-		TWQvE050fNSwGXcmOzpZTyYwiPg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			QJeASXrGM/37zvQV3LOODqVyuMQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			E1U35Eww7DU5U8zNTEhcyZIf2mbRRu/OPJiew5Rakn8=
+			</data>
+		</dict>
 		<key>Headers/InnometricsAPI.h</key>
-		<data>
-		OxvKS0El58jcq/gbatUiILSmJvk=
-		</data>
-		<key>Headers/InnometricsIF.h</key>
-		<data>
-		T/U4zPXmwNBjnq5zmRW8+HMvZqI=
-		</data>
-		<key>Headers/NSDictionary+Additions.h</key>
-		<data>
-		Cs50ARGoFbUfqL9CPQqwMAZO6/s=
-		</data>
-		<key>Headers/NSObject+Runtime.h</key>
-		<data>
-		75rPAmifz4bHRiYi9yfJzTKGO+I=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			FQewQbz+Ocydojdrrcn9YD2131A=
+			</data>
+			<key>hash2</key>
+			<data>
+			NPNVnhwRTReu3VR+gZApQ07+zneTO9Kcj5YK/RBoLjk=
+			</data>
+		</dict>
+		<key>IQLParser_1.3.0.archive</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kqPvchBszmcnMt/tKKn7eajFkdo=
+			</data>
+			<key>hash2</key>
+			<data>
+			et4XqZH15iulQ35HlOd3d2cZJR+AX0ecD4rL1JEDTIk=
+			</data>
+		</dict>
+		<key>Innometrics.momd/Innometrics.mom</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TsYF+DHsJ5BzQ892bHQDwYT9oy0=
+			</data>
+			<key>hash2</key>
+			<data>
+			TQ25sbL5M1xfqjHoPEG6ovRP2u6DomGJe7MISwkGk5Y=
+			</data>
+		</dict>
+		<key>Innometrics.momd/VersionInfo.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/OuaKJUKha9/ItmwLqfDjPMtGDw=
+			</data>
+			<key>hash2</key>
+			<data>
+			twtObHZkU1X988CWGBEH0n9jbZLimNX/0ga8CDRF45U=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D7mo0aqY5iQcoPj7HTpimlyrT1Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			oC9X3oB6OE5zpjmuoZ368ymeMIWbbDlFPaOQyL5fUPk=
+			</data>
+		</dict>
+		<key>defaults.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ekP90kMxMYJhXca+QQrB5OCRvmE=
+			</data>
+			<key>hash2</key>
+			<data>
+			TMq/ykplN2b/DViJpN2QffMWAPNK2wBef2my9uXlJAA=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
@@ -141,6 +179,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -186,6 +229,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

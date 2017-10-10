@@ -1,0 +1,21 @@
+{
+	"Version": 2,
+	"Main": {
+		"debug": false,
+		"configUpdateInterval": 30,
+		"connectionInterval": 10,
+		"connectionTimeout": 10,
+        "socketPingInterval": 10
+	},
+	"Profile": {
+        "collectApp": "ios",
+		"sessionTimeout": 1800,
+		"profileUpdateInterval": 1,
+		"profileCacheMaxAge": 252600,
+        "profileMaxEvents": 500
+	},
+	"Segmentation": {
+		"evaluationTimeout": 3,
+		"resultMaxAge": 0
+	}
+}

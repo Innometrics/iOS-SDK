@@ -1,38 +1,11 @@
 //
 //  InnometricsAPI.h
-//  InnometricsSDK
+//  Innometrics
 //
-//  Copyright (c) 2014 Innometrics AB. All rights reserved.
+//  Copyright (c) 2014 APSIS International AB. All rights reserved.
 //
 
-#import "IDCSegmentEvaluation.h"
-
-typedef NS_ENUM(NSInteger, IDCResultCode) {
-    PROFILE_UPDATED = 1,
-    PROFILE_MERGED,
-    IQL_EXECUTED
-};
-
-/**
- *  Protocol definition for a callback to be invoked when SDK finishes a request.
- */
-@protocol InnometricsAPIDelegate <NSObject>
-@optional
-/**
- *  Callback method to be invoked when SDK request fails with error.
- *
- *  @param error error description
- */
-- (void)innometricsDidReceiveError:(NSError *)error;
-
-/**
- *  Callback method to be invoked when SDK request is completed successfullly.
- *
- *  @param response response code
- */
-- (void)innometricsDidReceiveResponse:(IDCResultCode)response;
-
-@end
+#import "INNResult.h"
 
 /**
  *  Class that allows you to communicate with the Innometrics API.
@@ -40,157 +13,107 @@ typedef NS_ENUM(NSInteger, IDCResultCode) {
 @interface InnometricsAPI : NSObject
 
 /**
- *  Object that will recieve callbacks when SDK finishes a request.
- */
-@property (nonatomic, strong) id<InnometricsAPIDelegate> delegate;
-
-/**
- *  Returns true if SDK is currently scheduled to periodically send data.
- */
-@property (nonatomic, readonly) BOOL inSleep;
-
-/**
- *  When first invoked, creates a new object with temporary user profile.
- */
-+ (instancetype)sharedManager;
-
-/**
- *  Enables tracking of all app's uncaught exceptions.
- */
-- (void)setTrackUncaughtExceptions:(BOOL)trackUncaughtExceptions;
-
-/**
- *  Sets canonical profile id for the current user.
+ *  Initializes the library, should be called once as early as possible in App's lifecycle
  *
- *  @param profileId canonical profile id
+ *  @param token    Your App's token
  */
-- (void)setCanonicalProfileId:(NSString *)profileId;
++ (nullable instancetype)sharedInstanceWithToken:(nullable NSString *)url;
+
 
 /**
- *  Returns canonical profile id.
+ *  Singleton instance of library. Returns previously initialized library instance.
+ */
++ (nullable instancetype)sharedInstance;
+
+/**
+ *  Merges local profile to another profile on Profile Cloud and returns result in resultBlock.
  *
- *  @return canonical profile id
+ *  @param profileID    Identifier of target Profile
+ *  @param resultBlock  Operation result handler (to be posted on the main thread)
  */
-- (NSString *)canonicalProfileId;
+- (void)mergeToProfileWithID:(nonnull NSString *)profileID
+                      result:(nullable INNResultBlock)resultBlock;
 
 /**
- *  Sets temporary profile id for the current user.
- *
- *  @param profileId temporary profile id
- */
-- (void)setTemporaryProfileId:(NSString *)profileId;
-
-/**
- *  Returns temporary profile id.
- *
- *  @return temporary profile id
- */
-- (NSString *)temporaryProfileId;
-
-/**
- *  Resets temporary and canonical profile ID's
+ *  Renews local profile with random id.
  */
 - (void)resetProfile;
 
 /**
- *  Adds user event.
+ *  Renews current Session.
+ */
+- (void)createSession;
+
+/**
+ *  Adds an Event to current Session.
  *
- *  @param eventDefinition event definition
- *  @param eventData       event data
+ *  @param definitionID    Event Definition's identifier
+ *  @param data            Dictionary with Event data
  */
-- (void)trackEvent:(NSString *)eventDefinition data:(NSDictionary *)eventData;
+- (void)trackEvent:(nonnull NSString *)definitionID
+              data:(nullable NSDictionary *)data;
 
 /**
- *  Adds user error.
+ *  Sets a Profile Attribute's data for current Collect App.
  *
- *  @param userError user error
+ *  @param data   dictionary with Profile attributes
  */
-- (void)trackError:(NSError *)userError;
+- (void)setProfileAttribute:(nonnull NSDictionary *)data;
 
 /**
- *  Adds an event which contains information about an exception.
+ *  Returns an attributes from the current profile, collectApp and section.
+ */
+- (nullable NSDictionary *)profileAttribute;
+
+
+/**
+ *  Returns an attributes from the current profile and particular collectApp and section.
+ *  @param collectApp   desired attribute's collectApp
+ *  @param section      desired attribute's section
+ */
+- (nullable NSDictionary *)profileAttributeFromCollectApp:(nonnull NSString *)collectApp
+                                                  section:(nonnull NSString *)section;
+/**
+ *  Sets a session data for the current session.
  *
- *  @param caughtException an exception
+ *  @param data   dictionary with Session data
  */
-- (void)trackException:(NSException *)caughtException;
+- (void)setSessionData:(nonnull NSDictionary *)data;
 
 /**
- *  Sets an attribute for the current user profile.
+ *  Returns a session data from the current session.
+ */
+- (nullable NSDictionary *)sessionData;
+
+/**
+ *  Evaluates segment with current profile and returns result or error in resultBlock
  *
- *  @param key   attribute name
- *  @param value attribute value
+ *  @param segmentID    ID of preconfigured segment
+ *  @param resultBlock  Result handler (to be posted on the main thread)
  */
-- (void)setAttributeWithKey:(NSString *)key value:(NSObject *)value;
+- (void)checkSegmentWithID:(NSUInteger)segmentID
+                    result:(nonnull INNResultBlock)resultBlock;
 
 /**
- *  Add or replace session data for current session.
+ *  Evaluates segment with current profile and returns result or error in resultBlock
  *
- *  @param key   data key
- *  @param value ordinary data which can be a json object, NSString or primitive type
+ *  @param query        IQL-expression
+ *  @param resultBlock  Result handler (to be posted on the main thread)
  */
-- (void)setSessionDataWithKey:(NSString *)key value:(NSObject *)value;
+- (void)checkSegmentWithQuery:(nonnull NSString *)query
+                       result:(nonnull INNResultBlock)resultBlock;
+
+#pragma mark - Injection Framework
 
 /**
- *  Merges data from previous temporary profile into current canonical profile.
- */
-- (void)mergeProfile;
-
-
-/**
- *  Executes IQL request.
+ *  Executes preconfigured Event pulling Trigger with certain triggerName.
  *
- *  @param query            IQL-statement
- *  @param filteredProfile  If filteredProfile is set to YES and the result of the segment evaluation is YES, then in callback will be available  filteredProfile dictionary. The filtered profile contains the parts of the profile which matched the segment evaluation. Default value is NO.
- *  @param block            Callback block to be invoked upon request completion
+ *  @param triggerName  Name of the Trigger, could be added in the configs to any Trigger
+ *  @param target       An optional target object, which supposedly started current Event
+ *  @param info         Additional information, which could be utilized by TriggerInfoValues
  */
-- (void)evaluateQuery:(NSString *)query
-      filteredProfile:(BOOL)filteredProfile
-             callback:(IDCSegmentEvaluationBlock)block;
-
-/**
- *  Evaluates segment with current profile.
- *
- *  @param segmentId        ID of segment, previously created in GUI
- *  @param filteredProfile  If filteredProfile is set to YES and the result of the segment evaluation is YES, then in callback will be available  filteredProfile dictionary. The filtered profile contains the parts of the profile which matched the segment evaluation. Default value is NO.
- *  @param block            Callback block to be invoked upon request completion
- */
-- (void)evaluateSegment:(NSUInteger)segmentId
-        filteredProfile:(BOOL)filteredProfile
-               callback:(IDCSegmentEvaluationBlock)block;
-
-
-/**
- *  Evaluates segment with current profile in pseudo-synchronous style.
- *  Caching behavior and timeouts per segment could be set in config
- *
- *  @param segmentId        ID of segment, previously created in GUI
- */
-- (BOOL)checkSegmentWithId:(NSUInteger)segmentId;
-
-/**
- *  Forces background synchronization out of schedule.
- */
-- (void)forceBackgroundSync;
-
-/**
- *  Suspends background synchronization.
- */
-- (void)suspendBackgroundSync;
-
-/**
- *  Resumes background synchronization.
- */
-- (void)resumeBackgroundSync;
-
-#pragma mark - Deprecated methods
-
-/**
- *  Executes IQL request. Implementation uses evaluateQuery:filteredProfile:callback: instead with filteredProfile attribute set to YES.
- *
- *  @param iql   IQL-statement
- *  @param block Callback block to be invoked upon request completion
- */
-- (void)executeIQL:(NSString *)iql
-      withCallback:(IDCSegmentEvaluationBlock)block __attribute__((deprecated));
+- (void)pullTrigger:(nonnull NSString *)triggerName
+             target:(nullable NSObject *)target
+               info:(nullable NSDictionary *)info;
 
 @end
