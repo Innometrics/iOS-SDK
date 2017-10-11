@@ -17,7 +17,7 @@
  *
  *  @param token    Your App's token
  */
-+ (nullable instancetype)sharedInstanceWithToken:(nullable NSString *)url;
++ (nullable instancetype)sharedInstanceWithToken:(nullable NSString *)token;
 
 
 /**
