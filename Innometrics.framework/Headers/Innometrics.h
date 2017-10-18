@@ -18,5 +18,6 @@ FOUNDATION_EXPORT const unsigned char InnometricsVersionString[];
 
 #import <Innometrics/InnometricsAPI.h>
 
+#import <Innometrics/IIFBuildingBlock.h>
 #import <Innometrics/IIFEventExecutionContext.h>
 #import <Innometrics/IIFTag.h>
