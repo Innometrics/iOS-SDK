@@ -7,9 +7,12 @@ Use [CocoaPods](https://github.com/CocoaPods/CocoaPods), [Carthage](https://gith
 1. Add Innometrics to your project's `Podfile`:
 
 	```ruby
+	platform :ios, '9.0'
+	use_frameworks!
+
 	target :MyApp do
 	  # your app dependencies
-	  pod 'Innometrics', :git => 'https://github.com/Innometrics/iOS-SDK.git', :tag => 'v2.0'
+	  pod 'Innometrics', :git => 'https://github.com/Innometrics/iOS-SDK.git', :tag => '2.0.0'
 	end
 	```
 
